@@ -33,7 +33,7 @@ def prepare_dataframe_for_model(df, lookback):
     df.dropna(inplace=True)
     return df
 
-lookback = 7
+lookback = 10
 shifted_df = prepare_dataframe_for_model(data, lookback)
 shifted_df_as_np = shifted_df.to_numpy()
 
@@ -110,7 +110,7 @@ class GRU(nn.Module):
 
 # Initialize models
 input_size = 1
-hidden_size = 4
+hidden_size = 7
 num_layers = 1
 lstm_model = LSTM(input_size, hidden_size, num_layers).to(device)
 gru_model = GRU(input_size, hidden_size, num_layers).to(device)
@@ -143,8 +143,8 @@ def validate_one_epoch(model, loader, loss_function):
     return running_loss / len(loader)
 
 # Hyperparameters
-learning_rate = 0.001
-num_epochs = 40
+learning_rate = 0.01
+num_epochs = 77
 loss_function = nn.MSELoss()
 
 # Training loop for LSTM
