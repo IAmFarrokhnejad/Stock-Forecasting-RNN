@@ -64,6 +64,7 @@ y_train = torch.tensor(y_train).float()
 x_test = torch.tensor(x_test).float()
 y_test = torch.tensor(y_test).float()
 
+# Author: Morteza Farrokhnejad
 # Custom dataset class
 class TimeSeriesDataset(Dataset):
     def __init__(self, X, y):
